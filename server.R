@@ -5,8 +5,8 @@ source('helpers.R')
 # Get data
 manifolds <- list()
 manifolds$sol <- readRDS('data/sol.rds')
-manifolds$swiss <- readRDS('data/swiss.rds')
-manifolds$bunny <- readRDS('data/bunny.rds')
+manifolds$swiss <- genSwissRoll(500)
+manifolds$bunny <- genSolenoid(500)
 
 shinyServer(function(input, output) {
   
