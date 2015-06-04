@@ -1,9 +1,10 @@
 library(shiny)
-#library(shinyRGL)
 
 shinyUI(fluidPage(
   
   tags$head(
+    
+    # Title style
     tags$style(HTML("
       @import url('//fonts.googleapis.com/css?family=Lato:700,900');
       
@@ -27,7 +28,9 @@ shinyUI(fluidPage(
   
   fluidRow(column(12, h1("Visualizing Diffusion Maps with Shiny",
                              align = 'center'),
-                  h2("(there's a ", a("post on henry.re", href = "http://henry.re/"), " too)",
+                  h2("(there's a ",
+                     a("post on henry.re", href = "http://henry.re/2015/06/03/shinymanifolds/"),
+                     " too)",
                      align = 'center'),
                   br(), br())),
   
@@ -61,7 +64,7 @@ shinyUI(fluidPage(
                   shinyRGL is working."))
     ),
     
-    # 
+    # Show diffusion maps or manifold
     mainPanel(
       conditionalPanel(
         condition = "input.view == 1",

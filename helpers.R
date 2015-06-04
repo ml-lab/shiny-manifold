@@ -20,6 +20,7 @@ genSwissRoll <- function(npoints) {
   return(swissr)
 }
 
+# Generate toroidal solenoid and distance matrix
 genSolenoid <- function(npoints) {
   noise.sigma <- 0.075
   # Parameterizer
@@ -40,6 +41,7 @@ genSolenoid <- function(npoints) {
   return(sol)
 }
 
+# Compute first two diffusion maps
 diffusion.maps.2 <- function(D, alpha, epsilon) {
   A <- exp(-(D^2)/epsilon)
   p <- rowSums(A)^alpha
@@ -54,6 +56,7 @@ diffusion.maps.2 <- function(D, alpha, epsilon) {
   return(phi)
 }
 
+# Plot first two diffusion maps
 dm.plot <- function(D, alpha, epsilon, col) {
   dm <- diffusion.maps.2(D, alpha, epsilon)
   plot.df <- data.frame(dm)
