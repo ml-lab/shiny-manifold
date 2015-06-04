@@ -3,10 +3,33 @@ library(shiny)
 
 shinyUI(fluidPage(
   
+  tags$head(
+    tags$style(HTML("
+      @import url('//fonts.googleapis.com/css?family=Lato:700,900');
+      
+      h1 {
+        font-family: 'Lato', sans-serif;
+        font-weight: 900;
+        font-size: 5.5rem;
+        color: #3399ff;
+      } h2 {
+        font-family: 'Lato', sans-serif;
+        font-weight: 700;
+        font-size: 3.5rem;
+        color: #909090;
+      }
+
+    "))
+  ),
+  
   # Application title
-  titlePanel(h1(strong("Visualizing Diffusion Maps with Shiny")), windowTitle = "Shiny Manifolds"),
-  # Dislpay the subtitle
-  fluidRow(column(12, "There's a ", a("post on henry.re", href = "http://henry.re/"), " too", br(), br())),
+  headerPanel(title=NULL, windowTitle = "Shiny Manifolds"),
+  
+  fluidRow(column(12, h1("Visualizing Diffusion Maps with Shiny",
+                             align = 'center'),
+                  h2("(there's a ", a("post on henry.re", href = "http://henry.re/"), " too)",
+                     align = 'center'),
+                  br(), br())),
   
   # Sidebar with input for manifold and diffusion map parameters
   withMathJax(),
@@ -49,12 +72,12 @@ shinyUI(fluidPage(
         img(src = "bunny.gif", height = 500, width = 500)
       ),
       conditionalPanel(
-        condition = "input.view == 2 && input.mani == 'sol",
-        img(src = "solenoid.png", height = 500, width = 500)
+        condition = "input.view == 2 && input.mani == 'sol'",
+        img(src = "sol.png", height = '80%', width = '80%')
       ),
       conditionalPanel(
-        condition = "input.view == 2 && input.mani == 'swiss",
-        img(src = "swiss.png", height = 500, width = 500)
+        condition = "input.view == 2 && input.mani == 'swiss'",
+        img(src = "swiss.png", height = '80%', width = '80%')
       )
     )
   )
